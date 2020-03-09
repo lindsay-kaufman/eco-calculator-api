@@ -12,15 +12,15 @@
 
 require 'csv'
 
-csv_text = File.read(Rails.root.join('data', 'seeds', 'textiles.csv'))
+csv_text = File.read(Rails.root.join('db', 'textiles.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
- t = Textiles.new
+ t = Textile.new
  t.name = row['name']
- t.impact_score = row['impact']
- t.benchmark_score = row['benchmark']
+ t.impact_score = row['impact_score']
+ t.benchmark_score = row['benchmark_score']
  t.save
  puts "#{t.name}, #{t.impact_score}, #{t.benchmark_score}"
 end
 
-puts "There are now #{Textiles.count} rows in the table"
+puts "There are now #{Textile.count} rows in the table"

@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_08_212408) do
+ActiveRecord::Schema.define(version: 2020_03_09_194356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "components", force: :cascade do |t|
+    t.bigint "garment_id"
+    t.bigint "textile_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["garment_id"], name: "index_components_on_garment_id"
+    t.index ["textile_id"], name: "index_components_on_textile_id"
+  end
 
   create_table "examples", force: :cascade do |t|
     t.text "text", null: false
@@ -25,17 +34,12 @@ ActiveRecord::Schema.define(version: 2020_03_08_212408) do
 
   create_table "garments", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "type"
+    t.string "style"
     t.string "description"
     t.string "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_garments_on_user_id"
-  end
-
-  create_table "garments_textiles", id: false, force: :cascade do |t|
-    t.bigint "garment_id", null: false
-    t.bigint "textile_id", null: false
   end
 
   create_table "textiles", force: :cascade do |t|
@@ -56,6 +60,8 @@ ActiveRecord::Schema.define(version: 2020_03_08_212408) do
     t.index ["token"], name: "index_users_on_token", unique: true
   end
 
+  add_foreign_key "components", "garments"
+  add_foreign_key "components", "textiles"
   add_foreign_key "examples", "users"
   add_foreign_key "garments", "users"
 end

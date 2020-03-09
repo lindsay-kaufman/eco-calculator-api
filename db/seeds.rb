@@ -9,3 +9,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+require 'csv'
+
+csv_text = File.read(Rails.root.join('data', 'seeds', 'textiles.csv'))
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+ t = Textiles.new
+ t.name = row['name']
+ t.impact_score = row['impact']
+ t.benchmark_score = row['benchmark']
+ t.save
+ puts "#{t.name}, #{t.impact_score}, #{t.benchmark_score}"
+end
+
+puts "There are now #{Textiles.count} rows in the table"

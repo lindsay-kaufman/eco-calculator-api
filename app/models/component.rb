@@ -1,4 +1,4 @@
 class Component < ApplicationRecord
-  belongs_to :garments
-  belongs_to :textiles
+  belongs_to :garment
+  belongs_to :textile
 end

@@ -1,5 +1,5 @@
 class GarmentSerializer < ActiveModel::Serializer
-  attributes :id, :style, :description, :rating, :editable
+  attributes :id, :style, :description, :rating, :editable, :textiles
   has_one :user
   has_many :components
   has_many :textiles
@@ -7,4 +7,9 @@ class GarmentSerializer < ActiveModel::Serializer
   def editable
     scope == object.user
   end
+
+  def textiles
+    object.textiles
+  end
+
 end

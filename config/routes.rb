@@ -1,12 +1,15 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :add_percent_column_to_components
+  resources :components
   # RESTful routes
-  resources :garments, :textiles, except: %i[new edit]
+  resources :examples, :garments, :textiles, except: %i[new edit]
 
   # Custom routes
   post '/sign-up' => 'users#signup'
   post '/sign-in' => 'users#signin'
   delete '/sign-out' => 'users#signout'
   patch '/change-password' => 'users#changepw'
+
 end

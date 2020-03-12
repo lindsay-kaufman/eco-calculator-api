@@ -1,9 +1,9 @@
-class GarmentsController < ApplicationController
+class GarmentsController < ProtectedController
   before_action :set_garment, only: [:show, :update, :destroy]
 
   # GET /garments
   def index
-    @garments = Garment.all
+    @garments = current_user.garments.all
 
     render json: @garments
   end
@@ -15,7 +15,7 @@ class GarmentsController < ApplicationController
 
   # POST /garments
   def create
-    @garment = Garment.new(garment_params)
+    @garment = current_user.garments.build(garment_params)
 
     if @garment.save
       render json: @garment, status: :created, location: @garment
@@ -41,12 +41,11 @@ class GarmentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_garment
-      @garment = Garment.find(params[:id])
+      @garment = current_user.garments.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
     def garment_params
-      params.require(:garment).permit(:user_id, :type, :description, :rating)
-      # do I need to include textile_id?
+      params.require(:garment).permit(:user_id, :style, :description, :rating)
     end
 end

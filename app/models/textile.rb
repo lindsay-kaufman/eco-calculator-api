@@ -1,3 +1,4 @@
 class Textile < ApplicationRecord
-  has_and_belongs_to_many :garments
+  has_many :components
+  has_many :garments, through: :components
 end

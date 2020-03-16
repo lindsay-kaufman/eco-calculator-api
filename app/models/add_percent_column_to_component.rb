@@ -1,2 +1,0 @@
-class AddPercentColumnToComponent < ApplicationRecord
-end

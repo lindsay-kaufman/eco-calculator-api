@@ -1,9 +1,9 @@
-class ComponentsController < ApplicationController
+class ComponentsController < ProtectedController
   before_action :set_component, only: [:show, :update, :destroy]
 
   # GET /components
   def index
-    @components = Component.all
+    @components = current_user.components.all
 
     render json: @components
   end
@@ -41,7 +41,7 @@ class ComponentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_component
-      @component = Component.find(params[:id])
+      @component = current_user.components.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :add_percent_column_to_components
   resources :components
   # RESTful routes
   resources :examples, :garments, :textiles, except: %i[new edit]

@@ -1,5 +1,5 @@
-class TextilesController < ApplicationController
-  before_action :set_textile, only: [:show, :update, :destroy]
+class TextilesController < OpenReadController
+  before_action :set_textile, only: [:update, :destroy]
 
   # GET /textiles
   def index
@@ -15,7 +15,7 @@ class TextilesController < ApplicationController
 
   # POST /textiles
   def create
-    @textile = Textile.new(textile_params)
+    @textile = current_user.textiles.build(textile_params)
 
     if @textile.save
       render json: @textile, status: :created, location: @textile
@@ -41,7 +41,7 @@ class TextilesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_textile
-      @textile = Textile.find(params[:id])
+      @textile = current_user.textiles.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.

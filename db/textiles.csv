@@ -1,23 +1,27 @@
 name,impact_score,benchmark_score
-Glass Fiber Fabric,31,71%
-Polypropylene (PP) Fabric,37,63%
-Polyuethane Fabric,42,56%
-Polyester Fabric,44,50%
-Elastane/Spandex Fabric,44,48%
-Polytrimethylene Terephalate Fabric,50,38%
-Acrylic Fabric,52,36%
-Polylactic Acid Fabric,54,34%
-Acetate Fabric,56,30%
-Lyocell Fabric,57,29%
-Nylon Fabric,60%,26%
-Jute Fiber Fabric,60,26%
-Viscose/Rayon Fabric,62,25%
-Modal Fabric,67,21%
-Aramid Fabric,71,20%
-Carbon Fiber Fabric,73,19%
-Wool Fabric,82,15%
-Cotton Fabric,98,10%
-Hemp Fiber Fabric,160,2%
-Flax Fiber Fabric,162,2%
-Alpaca Fabric,283,.50%
-Silk Fabric,681,.20%
+Acetate,56,30%
+Acrylic,52,36%
+Alpaca Fleece,283,.50%
+Aramid,71,20%
+Cotton,98,10%
+Cotton (Organic),49,40%
+Cotton (Recycled),39,59.7%
+Elastane/Spandex,44,48%
+Flax Fiber,162,2%
+Hemp Fiber,160,2%
+Jute,60,26%
+Leather (Cow),163,44.5%
+Leather (Goat),160,74.8%
+Leather (Pig),160,74.8%
+Leather (Plant based),74,89.7%
+Lyocell,57,29%
+Nylon,60%,26%
+Nylon (Recycled),39,60.8%
+Modal,67,21%
+Polyester,44,50%
+Polyester (Recycled),39,58.6%
+Silk,681,.20%
+Tencel,47,43.7%
+Viscose/Rayon,62,25%
+Wool,82,15%
+Wool (Recycled),49,39%
